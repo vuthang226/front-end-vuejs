@@ -177,8 +177,7 @@
 </template>
 
 <script>
-// import MaterialsAPI from '@/api/components/Materials/MaterialsAPI';
-// import SelectCustom1 from "@/components/SelectCustom1.vue";
+import SelectCustom1 from "@/components/SelectCustom1.vue";
 export default {
     name:'MaterialDialog',
     props:{
@@ -228,6 +227,7 @@ export default {
     methods:{
         /**
          * Xử lý đóng dialog
+         * vhthang 25/03/2021
          */
         btnCloseDialog(){
             this.requird.name = true; 
@@ -235,12 +235,15 @@ export default {
             this.requird.unit = true;   
             this.$emit('btnCloseDialog');
         },
+
         /**
-         * sự kiên thay đổi đơn vị tính
+         * Sự kiên thay đổi đơn vị tính
+         * vhthang 25/03/2021
          */
         changeUnitMaterial(){
             this.$emit('changeUnitMaterial')
         },
+
         /**Sự kiện thay dôi dvt và xem nó có trùng ko NVL
          * vhthang 25/03/2021
          */
@@ -249,15 +252,15 @@ export default {
                 this.changeUnitMaterial();   
             }
             this.$emit('changeUnit',this.focusIndex);
-            
-            
         },
+
         /**Sự kiện nhấn thêm dòng
          * vhthang 25/03/2021
          */
         btnNewRow(){
             this.$emit('btnNewRow');  
         },
+
         /**Sự kiện nhấn xóa dòng
          * vhthang 25/03/2021
          */
@@ -265,6 +268,7 @@ export default {
             this.$emit('btnDeleteRow',this.focusIndex);
             this.focusIndex=-1
         },
+
         /**Sự kiện nhấn lưu data và validate dữ liệu
          * vhthang 25/03/2021
          */
@@ -289,25 +293,14 @@ export default {
             this.requird.code = true;  
             this.requird.unit = true; 
             }
-            
         },
+
         /**Sự kiện focus vào tên nvl
          * vhthang 25/03/2021
          */
         focusCode(){
             this.$refs.materialName.focus();
         },
-        
-        /**Hàm tự động thêm mã code cao nhất
-         * vhthang 25/03/2000 
-         */
-        // async changee(e){
-        //     const maCode = document.getElementById('materialCode');
-        //     const valueEvent = this.getAbbreviation(e.target.value);
-        //     const res = await MaterialsAPI.getHighestCode(valueEvent);
-        //     maCode.value = valueEvent + res.data.data;
-        //     this.changeMaterialCode(valueEvent + res.data.data) ;
-        // },
 
         /**Sự kiện lấy tên viết tắt NVL
          * vhthang 25/03/2021
@@ -322,6 +315,7 @@ export default {
                 .toUpperCase()
             return acronym;
         },
+
         /**Sự kiện nhấn thay đổi materialCode 
          * vhthang 25/03/2021
          */
@@ -333,7 +327,8 @@ export default {
     
    
     components:{
-        // SelectCustom1,
+
+        SelectCustom1,
     },  
     
     mounted(){

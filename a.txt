@@ -1,0 +1,6 @@
+- đăng bài subasa
+- tìm hiểu extension
+- học từ mới
+- up bản dbforce
+- lấy sql ra ngoài
+- kiểm tra visual
